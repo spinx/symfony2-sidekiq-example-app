@@ -7,3 +7,22 @@ composer install
 gem install bundler
 bundle install
 ```
+
+### Redis Configuration
+app/config/services.yml
+
+### Pushing to a queue
+https://github.com/spinx/symfony2-sidekiq-example-app/blob/master/src/DLabs/UserBundle/Command/UserQueuePushCommand.php
+
+### Qeueue handler 
+https://github.com/spinx/symfony2-sidekiq-example-app/blob/master/src/DLabs/UserBundle/Resources/config/queue_handler.yml
+
+
+
+## Run Sidekiq
+```bash
+sidekiq -r ./sidekiq.rb -C ./sidekiq.yml -c 1
+```
+
+## License
+MIT. Use as you wish. Let me know if you find it useful!
