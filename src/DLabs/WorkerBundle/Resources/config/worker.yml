@@ -1,0 +1,48 @@
+services:
+    # ----------------------------------------
+    # Push to queue tasks
+    # ----------------------------------------
+    dlabs.worker.push:
+        class: DLabs\WorkerBundle\Service\Queue\PushToQueue
+        arguments:
+            - @dlabs.worker.sidekiq_client.default
+            - default
+            - @dlabs.worker.generator.sidekiq_worker_name
+
+    dlabs.worker.push_user:
+        class: DLabs\WorkerBundle\Service\Queue\PushToQueue
+        arguments:
+            - @dlabs.worker.sidekiq_client.user
+            - user
+            - @dlabs.worker.generator.sidekiq_worker_name
+
+    # ----------------------------------------
+    # Schedule to queue tasks
+    # ----------------------------------------
+    dlabs.worker.schedule:
+        class: DLabs\WorkerBundle\Service\Queue\ScheduleToQueue
+        arguments:
+            - @dlabs.worker.sidekiq_client.default
+            - default
+            - @dlabs.worker.generator.sidekiq_worker_name
+
+    dlabs.worker.schedule_user:
+        class: DLabs\WorkerBundle\Service\Queue\ScheduleToQueue
+        arguments:
+            - @dlabs.worker.sidekiq_client.user
+            - user
+            - @dlabs.worker.generator.sidekiq_worker_name
+
+    # ----------------------------------------
+    # Sidekiq clients
+    # ----------------------------------------
+    dlabs.worker.sidekiq_client.default:
+        class: SidekiqJob\Client
+        arguments:
+            - @dlabs.worker.redis.client.default
+
+
+    dlabs.worker.sidekiq_client.user:
+        class: SidekiqJob\Client
+        arguments:
+            - @dlabs.worker.redis.client.user

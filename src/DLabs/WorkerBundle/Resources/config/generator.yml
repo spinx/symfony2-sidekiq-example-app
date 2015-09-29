@@ -1,0 +1,11 @@
+services:
+    # ----------------------------------------
+    # Generators
+    # ----------------------------------------
+    dlabs.worker.generator.sidekiq_worker:
+        class: DLabs\WorkerBundle\Service\Generator\SidekiqWorkerGenerator
+        arguments:
+          - @filesystem
+
+    dlabs.worker.generator.sidekiq_worker_name:
+        class: DLabs\WorkerBundle\Service\Generator\SidekiqWorkerNameGenerator
