@@ -1,5 +1,7 @@
 symfony2-sidekiq-example-app
 ============================
+## What is it ?
+Generate Sidekiq workers from symfony2 services, queue jobs and let Sidekiq process them by calling worker:exec command.
 
 ## Setup
 ```bash
