@@ -14,14 +14,21 @@ app/config/services.yml
 ### Pushing to a queue
 https://github.com/spinx/symfony2-sidekiq-example-app/blob/master/src/DLabs/UserBundle/Command/UserQueuePushCommand.php
 
-### Qeueue handler 
+### Queue handler 
 https://github.com/spinx/symfony2-sidekiq-example-app/blob/master/src/DLabs/UserBundle/Resources/config/queue_handler.yml
 
 
 
-## Run Sidekiq
+Running Sidekiq
+===============
+#### Run Sidekiq
 ```bash
 sidekiq -r ./sidekiq.rb -C ./sidekiq.yml -c 1
+```
+
+#### Run Sidekiq web interface
+```bash
+rackup -o 0.0.0.0
 ```
 
 ## License
