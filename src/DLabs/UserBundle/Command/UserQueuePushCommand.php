@@ -6,7 +6,7 @@ use Symfony\Bundle\FrameworkBundle\Command\ContainerAwareCommand;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Helper\ProgressBar;
-
+use Symfony\Component\Console\Input\InputOption;
 
 
 class UserQueuePushCommand extends ContainerAwareCommand
@@ -16,12 +16,13 @@ class UserQueuePushCommand extends ContainerAwareCommand
         $this
             ->setName('user:queue:push')
             ->setDescription('Push tasks to queeue')
+            ->addOption('num', null, InputOption::VALUE_OPTIONAL, 'Number of tasks', 100);
         ;
     }
 
     protected function execute(InputInterface $input, OutputInterface $output)
     {
-        $numTasks = 100; // add this many
+        $numTasks = $input->getOption('num'); // add this many
 
         $container = $this->getContainer();
         $pushService = $container->get('dlabs.worker.push_user');

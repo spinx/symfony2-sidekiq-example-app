@@ -1,10 +1,15 @@
 ---
 :concurrency: 2
 :pidfile: /tmp/sidekiq.pid
+
 staging:
   :concurrency: 2
 production:
-  :concurrency: 2
+  :concurrency: 20
+
 :queues:
   - default
   - user
+
+:limits:
+  user: 1

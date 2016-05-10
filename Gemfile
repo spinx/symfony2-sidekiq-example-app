@@ -6,3 +6,4 @@ gem 'sidekiq'
 gem "sidekiq-cron"
 gem 'sidekiq_monitor'
 gem 'redis'
+gem 'sidekiq-limit_fetch'
