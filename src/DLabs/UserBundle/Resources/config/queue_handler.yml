@@ -2,4 +2,3 @@ services:
     dlabs.user.queue_handler.do_nothing:
         class: DLabs\UserBundle\Service\QueueHandler\DoNothingQueueHandler
 
-    
