@@ -14,7 +14,7 @@ bundle install
 app/config/services.yml
 
 ### Pushing to a queue
-https://github.com/spinx/symfony2-sidekiq-example-app/blob/master/src/DLabs/UserBundle/Command/UserQueuePushCommand.php
+https://github.com/spinx/symfony2-sidekiq-example-app/blob/master/src/DLabs/UserBundle/Command/UserEnqueueCommand.php
 
 ### Queue handler 
 https://github.com/spinx/symfony2-sidekiq-example-app/blob/master/src/DLabs/UserBundle/Resources/config/queue_handler.yml
