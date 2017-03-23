@@ -11,6 +11,8 @@
 /var/pids/*
 !var/cache/.gitkeep
 !var/logs/.gitkeep
+!/var/sessions/.gitkeep
+!/var/pids/.gitkeep
 
 # Parameters
 /app/config/parameters.yml

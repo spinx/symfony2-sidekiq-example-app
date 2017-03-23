@@ -8,7 +8,6 @@ require 'base64'
 require 'zlib'
 require 'stringio'
 require 'sidekiq-statistic'
-require 'sidekiq-limit_fetch'
 
 Dir[File.dirname(__FILE__) + '/app/workers/*.rb'].each {|file| require file }
 
