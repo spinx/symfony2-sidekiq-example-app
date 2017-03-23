@@ -16,7 +16,7 @@ Sidekiq::Statistic.configure do |config|
     config.log_file = 'app/logs/sidekiq-statistic.log'
 end
 
-ENV['RAILS_ENV'] = ENV['RAILS_ENV'] != "development" ? ENV['RAILS_ENV'] : "devbox"
+ENV['RAILS_ENV'] = ENV['RAILS_ENV'] != "development" ? ENV['RAILS_ENV'] : "dev"
 
 
 # Redis connection

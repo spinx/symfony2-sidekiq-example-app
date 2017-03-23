@@ -2,13 +2,11 @@
 
 namespace DLabs\UserBundle\Service\QueueHandler;
 
-use DLabs\WorkerBundle\Service\QueueHandler\QueueHandlerInterface;
-
-class DoNothingQueueHandler implements QueueHandlerInterface
+class DoNothingQueueHandler
 {
-    public function execute()
+    public function execute($num)
     {
-        if (time() % 4 === 0){
+        if ($num % 4 === 0){
             throw new \Exception("That's really unlucky. ");
         }
     }
