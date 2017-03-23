@@ -39,7 +39,6 @@ class WorkerGenerateCommand extends ContainerAwareCommand
         $this->nameGenerator = $this->container->get('dlabs.worker.generator.sidekiq_worker_name');
 
         $services   = preg_grep($this->nameGenerator->getRegex(), $this->container->getServiceIds());
-        dump($services);die;
         $generator  = $this->container->get('dlabs.worker.generator.sidekiq_worker');
         $generator->setSkeletonDirs([
             $this->container->get('kernel')->locateResource('@DLabsWorkerBundle/Resources')
@@ -49,7 +48,7 @@ class WorkerGenerateCommand extends ContainerAwareCommand
             $class      = $this->nameGenerator->generate($serviceName);
             $filename   = $this->nameGenerator->generateFilename($serviceName);
 
-            if (strpos($serviceName, '__dummy')){
+            if (false === strpos($serviceName, '__dummy')){
                 $generator->generate('template/sidekiq_worker.rb.twig', "app/workers/{$filename}", [
                     'namespace' => __NAMESPACE__,
                     'service' => $serviceName,
