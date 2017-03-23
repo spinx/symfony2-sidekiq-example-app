@@ -25,12 +25,12 @@ Running Sidekiq
 ===============
 #### Run Sidekiq
 ```bash
-sidekiq -r ./sidekiq.rb -C ./sidekiq.yml -c 1
+bin/sidekiq
 ```
 
 #### Run Sidekiq web interface
 ```bash
-rackup -o 0.0.0.0
+bin/sidekiq-web
 ```
 
 ## License
