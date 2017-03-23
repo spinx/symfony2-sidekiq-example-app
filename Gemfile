@@ -1,9 +1,13 @@
 source 'https://rubygems.org'
 
 # Workers
-gem 'sinatra'
+gem 'algorithms'
+gem 'tilt'
+gem 'statsd-ruby'
+gem 'redis-namespace'
 gem 'sidekiq'
-gem "sidekiq-cron"
-gem 'sidekiq_monitor'
-gem 'redis'
+source "https://enterprise.contribsys.com/" do
+  gem 'sidekiq-ent'
+end
+gem 'sidekiq-statistic'
 gem 'sidekiq-limit_fetch'

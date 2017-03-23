@@ -1,9 +1,6 @@
-require 'sinatra/base'
 require 'sidekiq'
-require 'sidekiq/api'
-require 'sidekiq/cron'
 require 'sidekiq/web'
-require 'sidekiq/cron/web'
+require 'sidekiq-statistic'
 
 run Rack::URLMap.new(
 	'/' => Sidekiq::Web

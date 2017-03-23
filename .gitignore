@@ -3,10 +3,14 @@
 /app/logs/*
 !app/cache/.gitkeep
 !app/logs/.gitkeep
+!bin/sidekiq
+!bin/sidekiq-web
 
 # Cache and logs (Symfony3)
 /var/cache/*
 /var/logs/*
+/var/sessions/*
+/var/pids/*
 !var/cache/.gitkeep
 !var/logs/.gitkeep
 
@@ -33,3 +37,5 @@
 # Build data
 /build/
 .idea
+
+.bundle

@@ -2,13 +2,13 @@ class {{ class }}
     include Sidekiq::Worker
 
     def perform(*arguments)
-        cmd = "php app/console worker:exec --decode"
+        cmd = "php bin/console worker:exec --decode"
         args = Base64.encode64(gzip(arguments.to_json))
 
         logger.info "Calling #{cmd} {{ service }} '#{args}'"
 
         # call SF2 command and redirect stderr with 2>&1
-        output=`#{cmd} {{ service }} '#{args}' 2>&1`; result=$?.success?
+        output=`#{cmd} {{ service }} --no-debug '#{args}' 2>&1`; result=$?.success?
 
         if result != true
             raise output
