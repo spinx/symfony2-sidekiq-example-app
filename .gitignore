@@ -3,8 +3,6 @@
 /app/logs/*
 !app/cache/.gitkeep
 !app/logs/.gitkeep
-!bin/sidekiq
-!bin/sidekiq-web
 
 # Cache and logs (Symfony3)
 /var/cache/*
@@ -24,6 +22,10 @@
 /bin/*
 !bin/console
 !bin/symfony_requirements
+!bin/sidekiq
+!bin/sidekiq-web
+!bin/sidekiq-enterprise
+!bin/sidekiq-web-enterprise
 /vendor/
 
 # Assets and user uploads

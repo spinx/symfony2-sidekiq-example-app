@@ -2,15 +2,15 @@ services:
     # ----------------------------------------
     # Push to queue tasks
     # ----------------------------------------
-    dlabs.worker.push:
-        class: DLabs\WorkerBundle\Service\Queue\PushToQueue
+    dlabs.worker.enqueue:
+        class: DLabs\WorkerBundle\Service\Queue\Enqueue
         arguments:
             - '@dlabs.worker.sidekiq_client.default'
             - default
             - '@dlabs.worker.generator.sidekiq_worker_name'
 
-    dlabs.worker.push_user:
-        class: DLabs\WorkerBundle\Service\Queue\PushToQueue
+    dlabs.worker.enqueue_user:
+        class: DLabs\WorkerBundle\Service\Queue\Enqueue
         arguments:
             - '@dlabs.worker.sidekiq_client.user'
             - user

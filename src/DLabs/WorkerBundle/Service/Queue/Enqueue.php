@@ -7,7 +7,7 @@ use DLabs\WorkerBundle\Service\Generator\SidekiqWorkerNameGenerator;
 
 /**
  */
-class PushToQueue
+class Enqueue
 {
     /** @var Client */
     protected $client;

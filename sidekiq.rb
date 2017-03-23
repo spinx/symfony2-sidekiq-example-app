@@ -17,7 +17,6 @@ end
 
 ENV['RAILS_ENV'] = ENV['RAILS_ENV'] != "development" ? ENV['RAILS_ENV'] : "devbox"
 
-
 # Redis connection
 if ENV['RAILS_ENV'] == 'production'
     rediscfg = { url: 'redis://127.0.0.1:6379/0' }

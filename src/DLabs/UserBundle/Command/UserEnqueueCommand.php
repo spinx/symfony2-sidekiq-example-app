@@ -9,12 +9,12 @@ use Symfony\Component\Console\Helper\ProgressBar;
 use Symfony\Component\Console\Input\InputOption;
 
 
-class UserQueuePushCommand extends ContainerAwareCommand
+class UserEnqueueCommand extends ContainerAwareCommand
 {
     protected function configure()
     {
         $this
-            ->setName('user:queue:push')
+            ->setName('user:enqueue')
             ->setDescription('Push tasks to queeue')
             ->addOption('num', null, InputOption::VALUE_OPTIONAL, 'Number of tasks', 100);
         ;
@@ -25,7 +25,7 @@ class UserQueuePushCommand extends ContainerAwareCommand
         $numTasks = $input->getOption('num'); // add this many
 
         $container = $this->getContainer();
-        $pushService = $container->get('dlabs.worker.push_user');
+        $pushService = $container->get('dlabs.worker.enqueue_user');
         $progress = new ProgressBar($output, $numTasks);
 
         for($i = 0; $i < $numTasks; $i++){

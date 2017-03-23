@@ -57,6 +57,7 @@ class WorkerGenerateCommand extends ContainerAwareCommand
 
                 $output->writeln(sprintf('Generated <info>%s</info>', "app/workers/{$filename}"));
             }else{
+                $filename = str_replace('__dummy','', $filename);
                 $output->writeln(sprintf('Skipping <info>%s</info>', "app/workers/{$filename}"));
             }
         }

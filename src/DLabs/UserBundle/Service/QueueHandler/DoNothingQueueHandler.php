@@ -8,6 +8,8 @@ class DoNothingQueueHandler implements QueueHandlerInterface
 {
     public function execute()
     {
-        // Does nothing
+        if (time() % 4 === 0){
+            throw new \Exception("That's really unlucky. ");
+        }
     }
 }

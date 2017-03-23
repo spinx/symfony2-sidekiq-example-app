@@ -1,0 +1,3 @@
+#!/bin/bash
+
+bundle exec sidekiq -r ./sidekiq-enterprise.rb -C ./sidekiq.yml
