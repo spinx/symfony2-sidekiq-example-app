@@ -1,0 +1,7 @@
+services:
+
+    dlabs.user.event.interaction_recorded.event_handler:
+        class: DLabs\UserBundle\EventListener\InteractionRecordedEventHandler
+        tags:
+            - { name: kernel.queue_event_listener, event: dlabs.user.event.interaction_recorded, method: handle }
+

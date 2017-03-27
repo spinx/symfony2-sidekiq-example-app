@@ -1,0 +1,25 @@
+services:
+    # ----------------------------------------
+    # Redis clients
+    # ----------------------------------------
+    redis.client.queue.default:
+        class: Predis\Client
+        arguments:
+            - tcp://%queue_default_server%:6379/%queue_default_db%
+
+    redis.client.queue.user:
+        class: Predis\Client
+        arguments:
+            - tcp://%queue_user_server%:6379/%queue_user_db%
+    # ----------------------------------------
+    # Sidekiq clients
+    # ----------------------------------------
+    dlabs.queue.sidekiq_client.default:
+        class: SidekiqJob\Client
+        arguments:
+            - '@redis.client.queue.default'
+
+    dlabs.queue.sidekiq_client.user:
+        class: SidekiqJob\Client
+        arguments:
+            - '@redis.client.queue.default'

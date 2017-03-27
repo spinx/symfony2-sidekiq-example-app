@@ -1,0 +1,14 @@
+services:
+    # ----------------------------------------
+    # Enqueue tasks to sidek
+    # ----------------------------------------
+    dlabs.queue.command.enqueue:
+        class: DLabs\QueueBundle\Service\Command\EnqueueCommandService
+        arguments:
+            - '@dlabs.queue.sidekiq_client.default'
+            - default
+            - '@dlabs.worker.generator.sidekiq_worker_name'
+
+
+
+
