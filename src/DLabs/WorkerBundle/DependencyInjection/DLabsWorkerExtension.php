@@ -33,16 +33,6 @@ class DLabsWorkerExtension extends Extension
             }
         }
 
-        $this->loadRedisClients($container, $config);
     }
 
-    private function loadRedisClients(ContainerBuilder $container, $config)
-    {
-        foreach ($config['redis'] as $k => $c) {
-            $container->setAlias(
-                sprintf('dlabs.worker.redis.client.%s', $k),
-                $c['client']
-            );
-        }
-    }
 }

@@ -6,6 +6,7 @@ use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\Config\FileLocator;
 use Symfony\Component\HttpKernel\DependencyInjection\Extension;
 use Symfony\Component\DependencyInjection\Loader;
+use Symfony\Component\Finder\Finder;
 
 /**
  * This is the class that loads and manages your bundle configuration
@@ -20,9 +21,16 @@ class DLabsUserExtension extends Extension
     public function load(array $configs, ContainerBuilder $container)
     {
         $configuration = new Configuration();
-        $config = $this->processConfiguration($configuration, $configs);
+        $config        = $this->processConfiguration($configuration, $configs);
+        $loader = new Loader\YamlFileLoader($container, new FileLocator());
+        $finder = new Finder();
 
-        $loader = new Loader\YamlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
-        $loader->load('queue_handler.yml');
+        foreach ([__DIR__ . '/../Resources/config'] as $ymlPath) {
+            $files = $finder->files()->in($ymlPath)->name('*.yml');
+            foreach ($files as $file) {
+                /** @var $file \Symfony\Component\Finder\SplFileInfo */
+                $loader->load($file->getPathname());
+            }
+        }
     }
 }

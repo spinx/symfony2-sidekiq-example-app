@@ -5,14 +5,3 @@ parameters:
     queue_default_db: 0
     queue_user_server: 127.0.0.1
     queue_user_db: 0
-
-services:
-    redis.client.queue.default:
-        class: Predis\Client
-        arguments:
-            - tcp://%queue_default_server%:6379/%queue_default_db%
-
-    redis.client.queue.user:
-        class: Predis\Client
-        arguments:
-            - tcp://%queue_user_server%:6379/%queue_user_db%

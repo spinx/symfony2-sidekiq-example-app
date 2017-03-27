@@ -14,8 +14,10 @@ class AppKernel extends \Symfony\Component\HttpKernel\Kernel
             new Doctrine\Bundle\DoctrineBundle\DoctrineBundle(),
             new Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle(),
 
-            new DLabs\WorkerBundle\DLabsWorkerBundle(),
             new DLabs\UserBundle\DLabsUserBundle(),
+
+            new DLabs\WorkerBundle\DLabsWorkerBundle(),
+            new DLabs\QueueBundle\DLabsQueueBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

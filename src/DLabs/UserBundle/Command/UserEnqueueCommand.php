@@ -25,7 +25,7 @@ class UserEnqueueCommand extends ContainerAwareCommand
         $numTasks = $input->getOption('num'); // add this many
 
         $container = $this->getContainer();
-        $pushService = $container->get('dlabs.worker.enqueue_user');
+        $pushService = $container->get('dlabs.queue.command.enqueue');
         $progress = new ProgressBar($output, $numTasks);
 
         for($i = 0; $i < $numTasks; $i++){
