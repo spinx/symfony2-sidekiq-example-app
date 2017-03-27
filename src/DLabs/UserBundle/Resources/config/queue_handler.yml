@@ -1,6 +1,6 @@
 services:
-    dlabs.user.queue_handler.do_nothing:
-        class: DLabs\UserBundle\Service\QueueHandler\DoNothingQueueHandler
+    dlabs.user.queue_handler.track_interaction:
+        class: DLabs\UserBundle\Service\QueueHandler\TrackInteractionQueueHandler
 
 #    dlabs.user.queue_handler.do_nothing__dummy:
 #        class: stdClass
