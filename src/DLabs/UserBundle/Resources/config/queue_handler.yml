@@ -2,6 +2,5 @@ services:
     dlabs.user.queue_handler.do_nothing:
         class: DLabs\UserBundle\Service\QueueHandler\DoNothingQueueHandler
 
-    dlabs.user.queue_handler.tracker_process__dummy:
-        class: DLabs\UserBundle\Service\QueueHandler\DoNothingQueueHandler
-
+#    dlabs.user.queue_handler.do_nothing__dummy:
+#        class: stdClass

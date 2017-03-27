@@ -46,20 +46,17 @@ class WorkerGenerateCommand extends ContainerAwareCommand
 
         foreach ($services as $serviceName) {
             $class      = $this->nameGenerator->generate($serviceName);
-            $filename   = $this->nameGenerator->generateFilename($serviceName);
+            $filename   = str_replace('__dummy', '', $this->nameGenerator->generateFilename($serviceName));
+            $template =  (false === strpos($serviceName, '__dummy')) ? 'template/sidekiq_worker.rb.twig' : 'template/empty_sidekiq_worker.rb.twig';
+            $serviceName = str_replace('__dummy', '', $serviceName);
 
-            if (false === strpos($serviceName, '__dummy')){
-                $generator->generate('template/sidekiq_worker.rb.twig', "app/workers/{$filename}", [
-                    'namespace' => __NAMESPACE__,
-                    'service' => $serviceName,
-                    'class' => $class
-                ]);
+            $generator->generate($template, "app/workers/{$filename}", [
+                'namespace' => __NAMESPACE__,
+                'service' => $serviceName,
+                'class' => $class
+            ]);
 
-                $output->writeln(sprintf('Generated <info>%s</info>', "app/workers/{$filename}"));
-            }else{
-                $filename = str_replace('__dummy','', $filename);
-                $output->writeln(sprintf('Skipping <info>%s</info>', "app/workers/{$filename}"));
-            }
+            $output->writeln(sprintf('Generated <info>%s</info>', "app/workers/{$filename}"));
         }
 
     }
